@@ -18,3 +18,14 @@
 | Nb séances invalide | `-2.0`, `0` | Valeurs négatives -> `NaN` |
 | Tuteurs hétérogènes | `pair (étudiant avancé)`, `PAIR`, `Prof`, `ENSEIGNANT` | Mapping vers `Pair`, `Enseignant`, `Étudiant` |
 | Doublons stricts | `HZ70667`, `HZ90929`, `HZ56306` | Suppression sur `(id_etudiant, semaine_debut)` |
+
+## Table `messages.csv`
+
+| Anomalie | Détail | Traitement appliqué |
+|---|---|---|
+| Encodage | `Ã©`, `Ã `, `Ã§` | Remplacement par `é`, `à`, `ç` (UTF-8) |
+| Emails | `moussa.gueye@exemple.sn` | Masqué par `[EMAIL_MASQUE]` (Regex) |
+| Téléphones | `77 000 54 83` | Masqué par `[TEL_MASQUE]` (Regex) |
+| Noms / Prénoms | `c'est Awa Ndiaye`, `Je suis Mamadou Sow` | Masqué par `[NOM_MASQUE]` (Regex) |
+| Messages vides | `" "`, `.` | Suppression de la ligne |
+| Identifiants | Minuscules, espaces | `str.strip().str.upper()` |
