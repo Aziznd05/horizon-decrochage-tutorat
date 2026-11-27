@@ -1,0 +1,2 @@
+C-index Random Survival Forest (Train 2024, Test 2025) : 0.583
+Modele entraine avec succes.
